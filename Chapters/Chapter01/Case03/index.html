@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<title>01-03 网页换肤</title>
+<link id="demo" href="css01.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+<dl id="message">
+	<form>
+		<dt>
+			<strong>点击按钮切换皮肤：</strong>
+			<input id="btn01" type="button" value="现代风格" onclick="document.getElementById('demo').href = 'css01.css'" />
+			<input id="btn02" type="button" value="古典皮肤" onclick="document.getElementById('demo').href = 'css02.css'"/>
+		</dt>
+		<dd>输入姓名：<input class="text" type="text" /></dd>
+		<dd>输入密码：<input class="text" type="password" /></dd>
+		<dd>请您留言：<textarea></textarea></dd>
+		<dd class="center"><input class="btn" type="submit" value="提交" /></dd>
+	</form>
+</dl>
+
+</body>
+</html>

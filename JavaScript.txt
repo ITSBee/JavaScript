@@ -1,4 +1,4 @@
-记住密码提示框：
+案例一：记住密码提示框：
 1、效果原理(display)
 2、JS中的事件
    当……的时候
@@ -10,13 +10,13 @@
   赋值
   点
   引号
-  class的使用（obj）.className = ‘x’（换class）
+  class的使用obj.className = ‘x’（案例二：换class）
 
 
 
 
 
-网页换肤：
+案例三：网页换肤：
 1、效果原理：
   准备几套CSS样式表
   在点击按钮时，改变href值
@@ -24,7 +24,11 @@
   当点击时
   事件可以随意改变 
 
-JS中的函数
+
+
+
+
+案例四：改变div外观（函数）
 1、改变div的宽、高、背景色（权重）
 2、所有代码写在 行间很乱
 3、script标签
@@ -36,24 +40,50 @@ JS中的函数
 
 
 
-
-
-
-知识点回顾
-网页特效原理
-onmouseover、onmouseout
-onclick
-alert
-document.getElementById
-元素属性操作
-JS中的函数
-className
-
-
-行间事件：
-1、结构、表现、行为三者分离的写法
+案例五：改变div外观（行间事件）
+结构、表现、行为三者分离的写法
   window.onload的使用
   提取行间事件
   不用onload的结果
   JS执行顺序
-  
+
+
+
+
+
+案例六：收缩展开菜单（if判断）
+1、效果思路
+2、if条件判断
+  根据情况，做不同的事
+  判断是否相等（==）
+3、更复杂的判断
+  if、else if、else
+  判断条件的选择
+
+
+
+
+
+案例七：全选（for循环）
+1、效果原理
+2、控制checkbox的状态—checked；
+3、如何获取一组元素—getElementsByTagName
+4、for循环
+  重复执行操作
+  for循环的执行顺序
+
+
+
+
+案例八：弹出当前input属性值（for循环和事件）
+
+案例九：切换选项卡（for循环）
+
+
+
+
+
+
+
+
+
