@@ -1,0 +1,59 @@
+记住密码提示框：
+1、效果原理(display)
+2、JS中的事件
+   当……的时候
+  onmouseover、onmouseout
+  alert的使用
+3、元素获取（id、doucument.getElementById）
+4、属性操作：
+  obj.style.display = ‘’
+  赋值
+  点
+  引号
+  class的使用（obj）.className = ‘x’（换class）
+
+
+
+
+
+网页换肤：
+1、效果原理：
+  准备几套CSS样式表
+  在点击按钮时，改变href值
+2、onclick的使用：
+  当点击时
+  事件可以随意改变 
+
+JS中的函数
+1、改变div的宽、高、背景色（权重）
+2、所有代码写在 行间很乱
+3、script标签
+4、函数的定义
+5、函数的调用
+6、变量的使用
+
+
+
+
+
+
+
+
+知识点回顾
+网页特效原理
+onmouseover、onmouseout
+onclick
+alert
+document.getElementById
+元素属性操作
+JS中的函数
+className
+
+
+行间事件：
+1、结构、表现、行为三者分离的写法
+  window.onload的使用
+  提取行间事件
+  不用onload的结果
+  JS执行顺序
+  
