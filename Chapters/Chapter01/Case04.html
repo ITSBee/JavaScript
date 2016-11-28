@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>04函数</title>
+	<style>
+		#box01 {
+			width: 100px;
+			height: 100px;
+			background-color: #f00
+		}
+	</style>
+	<script>
+
+		function toGreen() {
+			document.getElementById('box01').style.width = '200px';
+			document.getElementById('box01').style.height = '200px';
+			document.getElementById('box01').style.backgroundColor = '#0f0';
+		}
+
+		function toRed() {
+			document.getElementById('box01').style.width = '100px';
+			document.getElementById('box01').style.height = '100px';
+			document.getElementById('box01').style.backgroundColor = '#f00';
+		}
+		
+	</script>
+</head>
+<body>
+	<div id="box01" onmouseover="toGreen()"  onmouseout="toRed()"></div>
+</body>
+</html>
