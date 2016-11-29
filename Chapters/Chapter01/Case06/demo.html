@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.title p {
+			background-image: url(ico-down.gif);
+			background-repeat: no-repeat;
+			background-position: right 4px;
+		}
+		.title ul {
+			display: none;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oBtn = document.getElementById('btn');
+			var oUl = document.getElementById('list');
+
+			oBtn.onclick = function () {
+				if (oUl.style.display == 'none') {
+					oUl.style.display = 'block';
+					oBtn.style.backgroundImage = 'url(ico-up.gif)';
+				} else {
+					oUl.style.display = 'none';
+					oBtn.style.backgroundImage = 'url(ico-down.gif)';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="title">
+		<p id="btn">标题</p>
+		<ul id="list">
+			<li>内容01</li>
+			<li>内容02</li>
+			<li>内容03</li>
+		</ul>
+	</div>
+</body>
+</html>

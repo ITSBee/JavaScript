@@ -3,8 +3,43 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			display: none;
+			background-color: #ccc;
+		}
+		.active {
+			background-color: yellow;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var aBtn = document.getElementsByTagName('input');
+			var aDiv = document.getElementsByTagName('div');
+			var i = 0;
+
+			for (var i = 0; i < aBtn.length; i++) {
+				aBtn[i].index = i;
+				aBtn[i].onclick = function () {
+					for (var i = 0; i < aBtn.length; i++) {
+						aBtn[i].className = '';
+						aDiv[i].style.display = 'none';
+					}
+					this.className = 'active';
+					aDiv[this.index].style.display = 'block';
+				}
+			}
+		}
+	</script>
 </head>
 <body>
-	<div style="width: 200px; height: 200px; background-color: #f00"></div>
+	<input class="active" type="button" value="1">
+	<input type="button" value="2">
+	<input type="button" value="3">
+	<div style="display: block;">11111111</div>
+	<div>22222222</div>
+	<div>33333333</div>
 </body>
 </html>

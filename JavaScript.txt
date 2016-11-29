@@ -66,18 +66,31 @@
 
 案例七：全选（for循环）
 1、效果原理
-2、控制checkbox的状态—checked；
-3、如何获取一组元素—getElementsByTagName
-4、for循环
+  控制checkbox的状态—checked；
+2、获取一组元素—getElementsByTagName
+3、for循环
   重复执行操作
-  for循环的执行顺序
+  for循环的执行顺序(案例7-1：for原理; 案例7-2：自增)
+
 
 
 
 
 案例八：弹出当前input属性值（for循环和事件）
 
+
+
+
+
 案例九：切换选项卡（for循环）
+1、效果原理
+  点击按钮时，改变class和style.display
+2、选项卡头部标签
+  所有按钮的className都为空
+  让当前按钮的className为active（this的使用）
+3、选项卡内容
+  所有div的display都为none；
+  让当前div的display为block（当前按钮的编号）
 
 
 

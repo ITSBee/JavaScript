@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>05结构、表现、行为三者分离</title>
+	<style>
+		#box01 {
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oDiv = document.getElementById('box01');
+		
+			function toGreen() {
+				oDiv.style.width = '200px';
+				oDiv.style.height = '200px';
+				oDiv.style.backgroundColor = '#0f0';
+			}
+
+			function toRed() {
+				oDiv.style.width = '100px';
+				oDiv.style.height = '100px';
+				oDiv.style.backgroundColor = '#f00';
+			}
+			
+			oDiv.onmouseover = toGreen;
+			oDiv.onmouseout = toRed;
+		}
+	</script>
+</head>
+<body>
+	<div id="box01" ></div>
+
+</body>
+</html>

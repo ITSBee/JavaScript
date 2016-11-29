@@ -2,24 +2,39 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8" />
-<title>05收缩展开菜单</title>
+<title>06收缩展开菜单</title>
 
 <style type="text/css">
 p, ul, li { padding: 0; margin: 0; list-style: none; }
 #box { font-size: 12px; color: #00c; width: 58px; margin: 0 auto; }
 p { width: 55px; height: 24px; line-height: 24px; padding-left: 3px; background: url(ico-down.gif) no-repeat right 4px; }
-ul { width: 56px; border: 1px solid #9a99ff; display: none-; }
+ul { width: 56px; border: 1px solid #9a99ff; }
 a { text-decoration: none; display: block; height: 24px; line-height: 24px; text-align: center; color: #00c; }
 a:hover { background: #d9e1f6; }
 </style>
+<script>
+	window.onload = function () {
+		var oBtn = document.getElementById('btn');
+		var oUl = document.getElementById('ul01');
 
+		oBtn.onclick = function () {
+			if (oUl.style.display == 'none') {
+				oUl.style.display = 'block';
+				oBtn.style.backgroundImage = 'url(ico-up.gif)';
+			} else {
+				oUl.style.display = 'none';
+				oBtn.style.backgroundImage = 'url(ico-down.gif)';
+			}
+		}
+	}
+</script>
 </head>
 
 <body>
 
 <div id="box">
 	<p id="btn">输入法</p>
-	<ul id="ul1" style="display:block;">
+	<ul id="ul01" style="display: none">
 		<li><a href="#">手写</a></li>
 		<li><a href="#">拼音</a></li>
 		<li><a href="#">关闭</a></li>
