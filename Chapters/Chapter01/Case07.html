@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>07for循环</title>
+	<script>
+		window.onload = function () {
+			
+			var oBtn = document.getElementById('btn');
+			var aInput = document.getElementsByTagName('input');
+			
+			oBtn.onclick = function () {
+				
+				for (var i = 0; i < aInput.length; i++) {
+					
+					if (aInput[i].checked == true) {
+						aInput[i].checked = false;
+					} else {
+						aInput[i].checked = true;
+					}
+
+				}
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+	<p id="btn">全选</p>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+	<input type="checkbox">选项<br>
+</body>
+</html>

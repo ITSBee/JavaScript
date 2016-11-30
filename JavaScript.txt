@@ -76,7 +76,14 @@
 
 
 
+
+
 案例八：弹出当前input属性值（for循环和事件）
+1、onclick弹出（alert）提示；
+2、this的使用；
+3、obj.value
+
+
 
 
 
@@ -91,6 +98,29 @@
 3、选项卡内容
   所有div的display都为none；
   让当前div的display为block（当前按钮的编号）
+
+
+
+
+
+案例十：设置文本（innerHTMLl）
+
+
+
+
+ 
+案例十一：简易日历
+1、效果原理
+  选项卡.active
+2、innerHTML
+  设置当前元素的index；
+  index对应元素的innerHTML；
+  连续取值（document.getElementById('id').getElementsByTagName('tag')[i]）；
+  index+1；
+  文本连接； 
+3、数组（Array）
+  数组原理（案例11-2）；
+  Array的this.index
 
 
 

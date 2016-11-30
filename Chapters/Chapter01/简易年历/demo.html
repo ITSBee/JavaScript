@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<style>
+		body, ul, h3, p {
+			margin: 0;
+		}
+		ul {
+			padding-left: 0;
+			list-style: none;
+		}
+		.calendar {
+			width: 246px;
+			margin: 20px auto;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			padding-left: 20px;
+			overflow: hidden;
+			border: 1px solid #000;
+		}
+		.calendar li {
+			float: left;
+			width: 60px;
+			height: 60px;
+			margin-right: 20px;
+			margin-bottom: 20px;
+			text-align: center;
+			line-height: 60px;
+			border: 1px solid #000;
+		}
+		.active	{
+			color: #f00;
+			background-color: #eee;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var aDates = [
+				'1',
+			]
+			var aLi = document.getElementsByTagName('li');
+			var oDiv = document.getElementById('calendar').getElementsByTagName('div')[0];
+
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].index = i;
+				aLi[i].onmouseover = function () {
+					for (var i = 0; i < aLi.length; i++) {
+						aLi[i].className = '';
+					}
+					this.className = 'active';
+					oDiv.innerHTML = '<h3>' + (this.index + 1) + '月活动</h3><p>'+aDates[this.index]+'</p>';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="calendar" id="calendar">
+		<ul style="overflow: hidden;">
+			<li class="active">1月</li>
+			<li>2月</li>
+			<li>3月</li>
+			<li>4月</li>
+			<li>5月</li>
+			<li>6月</li>
+			<li>7月</li>
+			<li>8月</li>
+			<li>9月</li>
+			<li>10月</li>
+			<li>11月</li>
+			<li>12月</li>
+		</ul>
+		<div>
+		  <h3>1月活动</h3>
+			<p>快过年了，Happy！</p>
+		</div>
+	</div>
+</body>
+</html>
