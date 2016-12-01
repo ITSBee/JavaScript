@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09选项卡切换</title>
+	<style>
+		.active {
+			background-color: yellow;
+		}
+		div {
+			display: none;
+			width: 200px;
+			height: 100px;
+			background-color: #eee;
+			border: 1px solid #ccc;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var aInput = document.getElementsByTagName('input');
+			var aDiv = document.getElementsByTagName('div');
+
+			for (var i = 0; i < aInput.length; i++) {
+				
+				aInput[i].index = i; //定义aInput元素的索引值
+
+				aInput[i].onclick = function () {
+					for (var i = 0; i < aInput.length; i++) {
+						aInput[i].className = '';
+						aDiv[i].style.display = 'none';
+					}
+					this.className = 'active';
+					aDiv[this.index].style.display = 'block';//让aDiv的索引值和aInput元素的索引值对应起来
+				}
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<input class="active" type="button" value="1">
+	<input type="button" value="2">
+	<input type="button" value="3">
+	<div style="display: block">1111111</div>
+	<div>2222222</div>
+	<div>3333333</div>
+</body>
+</html>

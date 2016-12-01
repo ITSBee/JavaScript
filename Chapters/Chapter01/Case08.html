@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>08for循环和事件</title>
+	
+	<script>
+		window.onload = function () {
+			
+			var aInput = document.getElementsByTagName('input');
+			for (var i = 0; i < aInput.length; i++) {
+				aInput[i].onclick = function () {
+					alert(this.value);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="1">
+	<input type="button" value="2">
+	<input type="button" value="3">
+	<input type="button" value="4">
+	<input type="button" value="5">
+	<input type="button" value="6">
+	<input type="button" value="7">
+	<input type="button" value="8">
+	<input type="button" value="9">
+	<input type="button" value="10">
+	<input type="button" value="11">
+	<input type="button" value="12">
+</body>
+</html>
