@@ -102,46 +102,38 @@
 
 
 
-
-案例十：设置文本（innerHTMLl）
-1、设置value；
-2、设置任何字符（包括标签）
-3、查看代码；
-
-
-
  
-案例十一：简易日历
+案例十：简易日历
 1、效果原理
   选项卡.active
-2、innerHTML
+2、innerHTML（案例10-01）
   设置当前元素的index；
   index对应元素的innerHTML；
   连续取值（document.getElementById('id').getElementsByTagName('tag')[i]）；
   index+1；
-  字符串连接； 
+  字符串连接（案例10-02）； 
 3、数组（Array）
-  数组原理（案例11-1）；
+  数组原理（案例10-3）；
   Array的this.index
 
 
 
 
 
-案例十二：定时器
-1、定时器类型（案例12-1）
+案例十一：定时器
+1、定时器类型（案例11-1）
   无限循环setInterval(要执行的代码,间隔时间)；
   运行一次setTimeout(要执行的代码,间隔时间)；
-2、关闭定时器（案例12-2）
+2、关闭定时器（案例11-2）
   clearInterval
   clerTimeout
 
 
 
-案例十三：Date对象
+案例十二：Date对象
 
 
-案例十四：数码时钟（Date对象）
+案例十四  ：数码时钟（Date对象）
 1、效果原理：
   更改img的src的值；
 2、获取时间
@@ -149,9 +141,13 @@
   getHours()，getMinutes()，getSeconds()
 3、显示系统时间
   字符串连接
-  空位补0
+  空位补0（定义带有参数的函数）
 4、设置图片路径
-  CharAt方法
+  CharAt方法（设置图片文件名是获取到的时间的字符位置）
+5、设置自动刷新
+  设置获取时间函数update
+  自动刷新（setInterval(update,间隔时间)）
+  立即调用时间函数update()
 
 
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>10-01 innerHTML</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: #eee;
+			border: 1px solid #ccc;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oTxt = document.getElementById('text');
+			var oBtn = document.getElementById('btn');
+			var oBox = document.getElementById('box');
+
+			oBtn.onclick = function () {
+				oBox.innerHTML = oTxt.value;
+			}
+		}
+	</script>
+</head>
+<body>
+	<input id="text" type="text"><input id="btn" type="button" value="设置文本">
+	<div id="box"></div>
+</body>
+</html>

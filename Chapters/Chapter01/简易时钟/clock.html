@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易时钟</title>
+	<style>
+		body {
+			background-color: #2f2f2f;
+			color: #fff;
+			font-size: 48px;
+		}
+		.clock { 
+			width: 60%;
+			margin: 40px auto;
+		}
+	</style>
+	<script>
+	function toDouble(num) {
+
+		if ( num < 10) {
+			return '0' + num;
+		} else {
+			return num
+		}
+	}
+	window.onload = function () {
+		
+		var aImg = document.getElementsByTagName('img');
+		var oBtn = document.getElementById('btn');
+		
+		// alert(Str);
+		// var Str = [ '2', '3', '3', '4', '5', '5']
+
+		function update() {
+			var oDate = new Date();
+			var Str = '' + toDouble(oDate.getHours()) + toDouble(oDate.getMinutes()) + toDouble(oDate.getSeconds());
+
+			for (var i = 0; i < aImg.length; i++) {
+				aImg[i].src = 'images/' + Str.charAt(i) + '.png' 
+			}
+		}
+
+		setInterval(update, 1000);
+
+		update();
+	}
+		
+		
+	</script>
+</head>
+<body>
+	<div class="clock">
+		<img src="images/0.png" >
+		<img src="images/0.png" > 时
+		<img src="images/0.png" >
+		<img src="images/0.png" > 分
+		<img src="images/0.png" >
+		<img src="images/0.png" > 秒
+	</div>
+	
+</body>
+</html>
