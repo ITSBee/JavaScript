@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>11简易时钟</title>
+	<style>
+		body {
+			background-color: #000;
+			font-size: 60px;
+			color: #fff;
+		}
+		.clock {
+			width: 360px;
+			margin: 40px auto;
+		}
+	</style>
+	<script>
+		
+		function toDouble(num) {
+			if ( num < 10) {
+				return '0' + num;
+			} else {
+				return '' + num;
+			}
+		}
+
+		window.onload = function () {
+			var oBtn = document.getElementById('btn');
+			var aImg = document.getElementById('clock').getElementsByTagName('img');
+
+			function Show() {
+				
+				var oTime = new Date();
+
+				var Str = '' + toDouble(oTime.getHours()) + toDouble(oTime.getMinutes())+ toDouble(oTime.getSeconds());
+
+				for (var i = 0; i < aImg.length; i++) {
+					aImg[i].src = 'images/' + Str.charAt(i) + '.png';
+				}
+			};
+
+			setInterval(Show, 1000);
+			
+			Show();
+			
+		}
+
+	</script>
+</head>
+<body>
+ 	
+	<div class="clock" id="clock">
+		<img src="images/0.png" >
+		<img src="images/0.png" > : 
+		<img src="images/0.png" >
+		<img src="images/0.png" > : 
+		<img src="images/0.png" >
+		<img src="images/0.png" ><br>	
+		<input id="btn" type="button" value="设置时间">
+	</div>
+</body>
+</html>

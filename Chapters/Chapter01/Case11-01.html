@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>11-01Date对象</title>
+	<script>
+		var oDate = new Date();
+		
+		function toDouble(num) {
+			if (num < 10) {
+				return '0' + num
+			} else {
+				return '' + num
+			}
+		}
+114823
+		var Str = ''+ toDouble(oDate.getHours()) + toDouble(oDate.getMinutes()) + toDouble(oDate.getSeconds());
+
+		alert( Str.charAt(0))
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
