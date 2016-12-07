@@ -163,9 +163,9 @@
 
 
 
-案例十三：运动基本原理
-1、obj.style.left = obj.offsetLeft + value + 'px'（案例13-01）；
-2、定时器自动运动（案例13-02）；
+案例十三：运动基本原理（案例13-01）
+1、obj.style.left = obj.offsetLeft + value + 'px'；
+2、定时器自动运动；
 
 
 
@@ -173,4 +173,42 @@
 
 
 案例十四：侧边栏分享菜单
+1、obj.style.left = obj.offsetLeft + value + 'px'；
+2、设置定时器setInterval()让元素运动起来；
+3、判断元素的offsetLeft的值，到达指定位置的时候停止运动（清除定时器）；
+4、bug：offsetLeft值改小后，循环累加offsetLeft的值（定时器开始之前先清除定时器）；
+5、复制onmouseover鼠标事件，将判断条件改为指定位置（并将对应的offsetLeft的值改方向）；
+6、传参（两个参）（14-01）：
+  function (speed, iTarget){ fun }(***注意：事件不可以调用带有参数的函数***)
+7、传参（一个参）（14-02）：
+  function (iTarget){ 
+    用if...else...判断speed的方向；
+    fun 
+  }
 
+
+
+
+
+案例十五：无缝滚动
+1、 效果原理
+  让ul一直向左移动（obj.style.left = obj.offsetLeft + value + 'px'）
+2、ul的宽
+  复制li(innerHTML和+=)
+  修改ul的width（li[i].offsetWidth*li.length + 'px'）
+3、滚动过界后，重设位置
+  判断过界（ul的left值是总宽度的-1/2）后，将ul的left改为0；
+4、改变滚动方向
+  修改iSpeed值
+  取值的方法（获取便签元素后使用索引值指定对应元素）
+  修改判断条件（ul的offsetLeft值大于0）后，将ul的left改为ul的总宽度的-1/2
+5、鼠标移入暂停
+  移入关闭定时器
+  移出重新开启定时器
+
+
+
+
+
+案例十六：评分
+1、

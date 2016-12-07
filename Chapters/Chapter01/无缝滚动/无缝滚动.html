@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JS18-运动02-无缝滚动</title>
+	<style type="text/css">
+		body, ul, img{
+			margin: 0;
+		}
+		
+		ul{
+			padding: 0;
+			list-style: none;
+		}
+		
+		.banner{
+			width: 720px;
+			height: 140px;
+			margin: 0 auto;
+			overflow: hidden;
+			position: relative;
+		}
+		.banner ul{
+			position: absolute;
+			left: 0; 
+			width: 960px;
+			height: 140px;
+		}
+		.banner li{
+			float: left;
+		}
+		#btn01, #btn02{
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top: 50%;
+			margin-top: -15px;
+		}
+
+		#btn01{
+			background: url(images/icon_control.png) no-repeat;
+			left: 20px;
+		}
+		#btn01:hover{
+			background: url(images/icon_control.png) no-repeat 0 -30px;
+		}
+		#btn02{
+			background: url(images/icon_control.png) no-repeat -30px 0;
+			right: 20px;
+		}
+		#btn02:hover{
+			background: url(images/icon_control.png) no-repeat -30px -30px;
+		}
+		
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oPre = document.getElementById('btn01');
+			var oNext = document.getElementById('btn02');
+			var oUl = document.getElementById('banner').getElementsByTagName('ul')[0];
+			var aLi = oUl.getElementsByTagName('li');
+			var iSpeed = -5;
+			var timmer = null;
+			
+			oUl.innerHTML += oUl.innerHTML;
+			oUl.style.width = aLi[0].offsetWidth*aLi.length + 'px';
+			// alert(oUl.innerHTML);
+
+			timmer = setInterval(function () {
+				oUl.style.left = oUl.offsetLeft + iSpeed +'px';
+				if (oUl.offsetLeft < -oUl.offsetWidth/2) {
+					oUl.style.left = 0 + 'px';
+				}else if(oUl.offsetLeft > 0){
+					oUl.style.left = -oUl.offsetWidth/2 + 'px';
+				}
+			}, 30);
+
+			oPre.onclick = function (){
+				iSpeed = -5;
+			};
+			oNext.onclick = function (){
+				iSpeed = 5;
+			};
+			oUl.onmouseover = function (){
+				clearInterval(timmer);
+			};
+			oUl.onmouseout = function (){
+				timmer = setInterval(function () {
+					oUl.style.left = oUl.offsetLeft + iSpeed +'px';
+					if (oUl.offsetLeft < -oUl.offsetWidth/2) {
+						oUl.style.left = 0 + 'px';
+					}else if(oUl.offsetLeft > 0){
+						oUl.style.left = -oUl.offsetWidth/2 + 'px';
+					};
+				}, 30);
+			};
+		};
+	</script>
+</head>
+<body>
+
+	<div class="banner" id="banner">
+		<ul>
+			<li><a href="#"><img src="images/tb01.jpg" alt=""></a></li>
+			<li><a href="#"><img src="images/tb02.jpg" alt=""></a></li>
+			<li><a href="#"><img src="images/tb03.jpg" alt=""></a></li>
+			<li><a href="#"><img src="images/tb04.jpg" alt=""></a></li>
+		</ul>
+		<a href="#" id="btn01"></a>
+		<a href="#" id="btn02"></a>
+	</div>
+
+</body>
+</html>

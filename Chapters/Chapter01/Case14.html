@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>13运动原理</title>
+	<style>
+		body {
+			margin-left: 0;
+		}
+		.box {
+			position: relative;
+			left: -200px;
+			width: 200px;
+			height: 150px;
+			background-color: #f00;
+		}
+		.box span {
+			position: absolute;
+			right: -16px;
+			width: 16px;
+			height: 40px;
+			background-color: #00f;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oBox = document.getElementById('box');
+			var timmer = null;
+
+
+			// 基本写法
+			// oBox.onmouseover = function () {
+			// 	clearInterval(timmer);
+			// 	timmer = setInterval(function () {	
+			// 		if (oBox.offsetLeft == 0) {
+			// 			clearInterval(timmer)
+			// 		} else {
+			// 			oBox.style.left = oBox.offsetLeft + 10 + 'px';
+			// 		}
+			// 	}, 30);
+			// }
+
+			// oBox.onmouseout = function () {
+			// 	clearInterval(timmer);
+			// 	timmer = setInterval(function () {	
+			// 		if (oBox.offsetLeft == -200) {
+			// 			clearInterval(timmer)
+			// 		} else {
+			// 			oBox.style.left = oBox.offsetLeft - 10 + 'px';
+			// 		}
+			// 	}, 30);
+			// }
+
+
+			// 精简方法一：传两个参数
+
+			// function Start() {
+			// 	clearInterval(timmer);
+			// 	timmer = setInterval(function () {	
+			// 		if (oBox.offsetLeft == 0) {
+			// 			clearInterval(timmer)
+			// 		} else {
+			// 			oBox.style.left = oBox.offsetLeft + 10 + 'px';
+			// 		}
+			// 	}, 30);
+			// }
+
+
+			// function Start2() {
+			// 	clearInterval(timmer);
+			// 	timmer = setInterval(function () {	
+			// 		if (oBox.offsetLeft == -200) {
+			// 			clearInterval(timmer)
+			// 		} else {
+			// 			oBox.style.left = oBox.offsetLeft + -10 + 'px';
+			// 		}
+			// 	}, 30);
+			// }
+			
+			// oBox.onmouseover = Start;
+			// oBox.onmouseout = Start2;
+
+
+
+			// function Start(iTarget, Speed) {
+			// 	clearInterval(timmer);
+			// 	timmer = setInterval(function () {	
+			// 		if (oBox.offsetLeft == iTarget) {
+			// 			clearInterval(timmer)
+			// 		} else {
+			// 			oBox.style.left = oBox.offsetLeft + Speed + 'px';
+			// 		}
+			// 	}, 30);
+			// }
+			
+			// oBox.onmouseover = function () {
+			// 	Start(0, 10);
+			// }
+			// oBox.onmouseout = function () {
+			// 	Start(-200, -10);
+			// }
+
+			function Start(iTarget) {
+				clearInterval(timmer);
+				timmer = setInterval(function () {	
+					var Speed = 0;
+					if (oBox.offsetLeft > iTarget) {
+						Speed = -10;
+					} else {
+						Speed = 10;
+					}
+					if (oBox.offsetLeft == iTarget) {
+						clearInterval(timmer)
+					} else {
+						oBox.style.left = oBox.offsetLeft + Speed + 'px';
+					}
+				}, 30);
+			}
+			
+			oBox.onmouseover = function () {
+				Start(0);
+			}
+			oBox.onmouseout = function () {
+				Start(-200);
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id="box">
+		<span>分享</span>
+	</div>
+</body>
+</html>
