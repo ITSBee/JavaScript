@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16无缝滚动2</title>
+	<link rel="stylesheet" href="style.css">
+	<script>
+		window.onload = function () {
+
+			var oDiv = document.getElementById('box');
+			var oUl = oDiv.getElementsByTagName('ul')[0];
+			var aLi = oDiv.getElementsByTagName('li');
+			var aBtn = oDiv.getElementsByTagName('a');
+			var timmer = null;
+			var speed = -10;
+
+
+			function Move() {
+					oUl.style.top = oUl.offsetTop + speed + 'px';
+					if (oUl.offsetTop < -oUl.offsetHeight/2) {
+						oUl.style.top = 0 + 'px';
+					}else if (oUl.offsetTop > 0) {
+						oUl.style.top = -oUl.offsetHeight/2 + 'px';
+					}
+				}
+
+			oUl.innerHTML += oUl.innerHTML;
+
+			oUl.style.height = aLi[0].offsetHeight * aLi.length + 'px';
+			// alert(oUl.offsetHeight)
+
+			aBtn[0].onmousedown = function () {
+				speed = -10;
+				timmer = setInterval(Move, 30)
+				
+			};
+			aBtn[1].onmousedown = function () {
+				speed = 10;
+				timmer = setInterval(Move, 30)
+				
+			}
+			aBtn[0].onmouseup = aBtn[1].onmouseup = function () {
+				clearInterval(timmer);
+			};
+
+		}
+	</script>
+</head>
+<body>
+
+<div class="box" id="box">
+	<div>
+		<ul>
+			<li><img src="images/tb01.jpg"></li>
+			<li><img src="images/tb02.jpg"></li>
+			<li><img src="images/tb03.jpg"></li>
+			<li><img src="images/tb04.jpg"></li>
+		</ul>
+		
+		<a class="l-btn" href="#"></a>
+		<a class="r-btn" href="#"></a>
+	</div>
+</div>
+</body>
+</html>

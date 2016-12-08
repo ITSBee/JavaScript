@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>评分</title>
+	<style type="text/css">
+		body, ul{
+			margin: 0;
+		}
+		ul{
+			list-style: none;
+			padding: 0;
+		}
+		#grade{
+			width: 300px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		#grade ul{height: 57px;}
+		#grade li{
+			float: left;
+			width: 60px;
+			height: 57px;
+			background: url(images/star.png) no-repeat 0 -56px;
+		}
+		#grade p{
+			width: 300px;
+			height: 30px;
+			line-height: 30px;
+			border: 1px solid #A7A7A7;
+			display: none;
+		}
+		#grade .active{ background: url(images/star.png) no-repeat 0 0px; }
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			aGrade = ['很差', '较差', '一般', '推荐', '力荐']
+
+			var oDiv = document.getElementById('grade');
+			var oUl = oDiv.getElementsByTagName('ul')[0];
+			var aLi = oDiv.getElementsByTagName('li');
+			var oP = oDiv.getElementsByTagName('p')[0];
+
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].index = i;
+				aLi[i].onmouseover = function () {
+					oP.style.display = 'block';
+					oP.innerHTML = aGrade[this.index];
+					for (var i = 0; i <= this.index; i++) {
+						aLi[i].className = 'active';
+					}
+					
+				}
+
+				aLi[i].onmouseout = function () {
+					oP.style.display = 'none';
+					for (var i = 0; i < aLi.length; i++) {
+						aLi[i].className = '';
+					}
+				}
+				
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="grade">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<p>一般</p>
+	</div>
+</body>
+</html>

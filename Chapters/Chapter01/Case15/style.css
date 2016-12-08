@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+body, 
+ul{ margin: 0; }
+
+ul {
+	padding-left: 0;
+	list-style: none;
+}
+
+img { vertical-align: middle; }
+
+.box {
+	position: relative;
+	width: 720px;
+	height: 140px;
+	overflow: hidden;
+	margin: 20px auto;
+	border: 1px solid #000;
+}
+
+.box ul {
+	position: absolute;
+	left: 0;
+}
+
+.box li { float: left; }
+
+.box a {
+	position: absolute;
+	top: 50%;
+	display: block;
+	width: 30px;
+	height: 30px;
+	margin-top: -15px;
+}
+
+.l-btn {
+	left: 20px;
+	background-image: url(images/icon_control.png);
+}
+
+.l-btn:hover { background-position: 0 30px; }
+
+.r-btn {
+	right: 20px;
+	background-image: url(images/icon_control.png);
+	background-position: 30px 0;
+}
+
+.r-btn:hover { background-position: 30px 30px; }
