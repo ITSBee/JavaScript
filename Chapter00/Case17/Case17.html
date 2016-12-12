@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>17评分</title>
+	<style>
+		body, ul, p {
+			margin: 0;
+		}
+		ul {
+			padding-left: 0;
+			list-style: none;
+		}
+		.grade {
+			width: 150px;
+			margin: 20px auto;
+			text-align: center;
+		}
+		.grade ul { height: 30px;}
+
+		.grade li {
+			float: left;
+			width: 30px;
+			height: 30px;
+			background-image: url(star2.png);
+			background-position: 0 30px;
+		}
+
+		.grade p {
+			
+			margin-top: 10px;
+			border: 1px solid #ccc;
+		}
+
+		.grade .active { background-position: 0 0; } 
+	</style>
+	<script>
+		window.onload = function () {
+			var oDiv = document.getElementsByTagName('div')[0];
+			var aLi = oDiv.getElementsByTagName('li');
+			var oP = oDiv.getElementsByTagName('p')[0];
+			var aGrade = ['很差', '较差', '一般', '推荐', '力荐'];
+
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].index = i;
+				aLi[i].onmouseover = function () {
+					oP.style.display = 'block';
+					oP.innerHTML = aGrade[this.index];
+
+					for (var i = 0; i <= this.index; i++) {
+						aLi[i].className = 'active';
+					}
+				}
+				
+				aLi[i].onmouseout = function () {
+					oP.style.display = 'none';
+					for (var i = 0; i < aLi.length; i++) {
+						aLi[i].className = 'none';
+					}
+				}
+
+				aLi[i].onclick = function () {
+					alert();
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="grade" id="grade">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<p style="display: none;">一般</p>
+	</div>
+</body>
+</html>
