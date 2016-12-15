@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>12-06 obj.currentStyle[attr]和getComputedStyle(obj)[attr]</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+	<script>
+		
+
+		window.onload = function () {
+			var oDiv = document.getElementById('box');
+			var oBtn = document.getElementById('btn');
+
+			oBtn.onclick = function () {
+				// alert(oDiv.style.width);
+				// alert(oDiv.currentStyle.width);				//IE
+				// alert(getComputedStyle(oDiv).width);		//FF
+				
+				if (oDiv.currentStyle) {
+					// IE
+					alert(oDiv.currentStyle.width);
+				} else {
+					//FF
+					alert(getComputedStyle(oDiv).width);
+				}
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id="box"></div>
+	<input id="btn" type="button" value="查看宽度">
+</body>
+</html>

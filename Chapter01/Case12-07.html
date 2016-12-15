@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>12-07 函数-参数应用（封装函数）</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 300px;
+			background-color: #f00;
+
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			// 定义函数
+			function getStyle(obj, attr) {
+				
+				if (obj.currentStyle) {
+					// IE
+					return obj.currentStyle[attr];
+				} else {
+					//FF
+					return getComputedStyle(obj)[attr];
+				}
+
+			}
+			// 定义变量
+			var oDiv = document.getElementById('box');
+			var oBtn = document.getElementById('btn');
+
+			oBtn.onclick = function () {
+				alert(getStyle(oDiv, 'fontFamily'))
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id="box"></div>
+	<input id="btn" type="button" value="查看属性">
+</body>
+</html>

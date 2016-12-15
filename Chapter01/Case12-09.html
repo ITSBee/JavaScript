@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>12-09 封装CSS函数(简化)</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: #f00;
+		}
+	</style>
+	<script>
+		
+		//$('#oDiv').css('background')
+		//$('#oDiv').css('background', 'green')
+		function getStyle(obj, attr) {
+				
+			if (obj.currentStyle) {
+				// IE
+				return obj.currentStyle[attr];
+			} else {
+				//FF
+				return getComputedStyle(obj)[attr];
+			}
+
+		}
+
+		window.onload = function () {
+			// // 定义函数
+			function CSS(obj, attr, value) {
+					if (arguments.length == 2) {
+						return getStyle(obj, attr);
+					} else if (arguments.length == 3) {
+						// oDiv.style.background = 'green'
+						obj.style[attr] = value;
+					}
+			}
+			// // 定义变量
+			var oDiv = document.getElementById('box');
+			var oBtn = document.getElementById('btn');
+
+			oBtn.onclick = function () {
+				
+				// alert(CSS(oDiv, 'width'))
+				CSS(oDiv, 'width', '400px')
+				
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id="box"></div>
+	<input id="btn" type="button" value="查看属性">
+</body>
+</html>

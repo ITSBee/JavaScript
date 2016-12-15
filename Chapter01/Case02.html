@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>02数据类型转换</title>
+	<script>
+		window.onload = function () {
+			var oBtn = document.getElementById('btn');
+			var oTxt01 = document.getElementById('text01');
+			var oTxt02 = document.getElementById('text02');
+
+			// oBtn.onclick = function () {
+				
+			// 	if (isNaN(oTxt01.value + oTxt02.value)) {
+			// 		alert('您输入的有误，请重新输入非小数整数！');
+			// 	} else {
+			// 		alert(parseInt(oTxt01.value) + parseInt(oTxt02.value));
+			// 	}
+				
+			// }
+
+			var result = oTxt01.value + oTxt02.value;
+			
+			oBtn.onclick = function () {
+				
+				if (isNaN(result)) {
+					alert('您输入的有误，请重新输入非小数整数！');
+				} else {
+					alert(parseInt(oTxt01.value) + parseInt(oTxt02.value));
+				}
+				
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<input id="text01" type="text"> + 
+	<input id="text02" type="text">
+	<input id="btn" type="button" value="求和">
+</body>
+</html>
