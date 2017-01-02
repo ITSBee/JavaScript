@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>13-01 offsetWidth的bug</title>
+	<style>
+		.demo{
+			width: 200px;
+			height: 50px;
+			margin-bottom: 10px;
+			border: 2px solid #000;
+			background-color: #f00;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oDiv = document.getElementById('demo');
+			 setInterval(function () {
+			 	oDiv.style.width = oDiv.offsetWidth - 1 + 'px';
+			 } , 30)
+		}
+	</script>
+</head>
+<body>
+	<div class="demo" id="demo"></div>
+</body>
+</html>

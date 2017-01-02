@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>04 跟随鼠标移动的div2</title>
+	<style>
+		body {
+			height: 2000px;
+			width: 2000px;
+		}
+		.demo {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+	<script>
+		document.onmousemove = function (ev) {
+			var oEvent = ev || event;
+			var oDiv = document.getElementById('demo');
+			var oScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			var oScrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+
+			oDiv.style.top = oEvent.clientY + oScrollTop + 'px';
+			oDiv.style.left = oEvent.clientX + oScrollLeft + 'px';
+
+			
+
+		}
+	</script>
+</head>
+<body>
+	<div class="demo" id="demo"></div>
+
+</body>
+</html>

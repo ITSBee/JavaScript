@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>02 事件对象兼容性</title>
+	<script>
+		document.onclick = function (ev) {
+			var oEvent = ev || event;
+			alert(oEvent.clientX + ',' + oEvent.clientY)
+
+			// alert(event.clientX + ',' + event.clientY)
+			// alert(ev.clientX + ',' + ev.clientY)
+
+			// if (ev) {
+			// 	alert(ev.clientX + ',' + ev.clientY)					//FF
+			// } else {
+			// 	alert(event.clientX + ',' + event.clientY)		//IE
+			// }
+
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>

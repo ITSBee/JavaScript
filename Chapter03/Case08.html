@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>08 方向键控制div移动</title>
+	<style>
+		.demo {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+	<script>
+		document.onkeydown = function (ev) {
+			var oEvent = ev || event;
+			var oDiv = document.getElementById('demo');
+
+
+			if (oEvent.keyCode == 37) {
+				oDiv.style.left = oDiv.offsetLeft - 10 + 'px';
+			}else if (oEvent.keyCode == 39) {
+				oDiv.style.left = oDiv.offsetLeft + 10 + 'px';
+			}else if (oEvent.keyCode == 38) {
+				oDiv.style.top = oDiv.offsetTop - 10 + 'px';
+			}else if (oEvent.keyCode == 40) {
+				oDiv.style.top = oDiv.offsetTop + 10 + 'px';
+			}
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<div class="demo" id="demo"></div>
+</body>
+</html>

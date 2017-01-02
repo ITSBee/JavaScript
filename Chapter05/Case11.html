@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>11 侧边栏垂直居中页面</title>
+	<style>
+		body { height: 2000px; }
+		.demo {
+			position: absolute;
+			right: 0;
+			width: 100px;
+			height: 150px;
+			background-color: #f00;
+		}
+	</style>
+	<script>
+		var timmer = null;
+
+		function startMove(iTarget) {
+			var oDiv = document.getElementById('demo');
+			clearInterval(timmer);
+
+			timmer = setInterval(function () {
+				var iSpeed = (iTarget - oDiv.offsetTop)/8;
+
+				if (iSpeed > 0 ) {
+					iSpeed = Math.ceil(iSpeed);
+				} else {
+					iSpeed = Math.floor(iSpeed);
+				}
+
+				if (oDiv.offsetTop == iTarget) {
+					clearInterval(timmer);
+				} else {
+					oDiv.style.top = oDiv.offsetTop + iSpeed + 'px';
+				}
+			}, 30)
+		}
+
+		window.onresize = window.onload = window.onscroll = function () {
+			var oDiv = document.getElementById('demo');
+			var oScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			
+			// var t = oScrollTop + (document.documentElement.clientHeight - oDiv.offsetHeight)/2
+	
+			startMove(oScrollTop + (document.documentElement.clientHeight - oDiv.offsetHeight)/2);
+
+			// startMove(t)
+
+		}
+	</script>
+</head>
+<body>
+	<div class="demo" id="demo"></div>
+</body>
+</html>

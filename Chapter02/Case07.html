@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>07 首尾子节点</title>
+	<script>
+		window.onload = function () {
+
+			var oUl = document.getElementById('demo');
+
+			// 首节点
+			// var oLi = oUl.firstElementChild || oUl.firstChild;
+			// oLi.style.background = 'red';
+
+			// 末节点
+			var oLi = oUl.lastElementChild || oUl.lastChild;
+			oLi.style.background = 'red';
+
+
+		}
+	</script>
+
+</head>
+<body>
+	<ul id="demo">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

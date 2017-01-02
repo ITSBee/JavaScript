@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>18 删除DOM元素</title>
+	<script>
+		window.onload = function () {
+			var oUl = document.getElementById('demo');
+			var aA = document.getElementsByTagName('a');
+
+
+			for (var i = 0; i < aA.length; i++) {
+				aA[i].onclick = function () {
+					oUl.removeChild(this.parentNode)
+				}
+			}
+
+		}
+	</script>
+
+</head>
+<body>
+	<ul id="demo">
+		<li>111
+			<a href="#">删除</a>
+		</li>
+		<li>222
+			<a href="#">删除</a>
+		</li>
+		<li>333
+			<a href="#">删除</a>
+		</li>
+		<li>444
+			<a href="#">删除</a>
+		</li>
+		
+	</ul>
+</body>
+</html>

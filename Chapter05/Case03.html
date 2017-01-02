@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03 运动03-速度的数值对目标的影响</title>
+	<style>
+		.box{
+			position: absolute;
+			top: 50px;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+	</style>
+	<script>
+		var timmer = null;
+		function startMove () {
+			var oDiv = document.getElementById('demo');
+			
+			timmer = setInterval(function () {
+				var iSpeed = 7;
+
+				if(oDiv.offsetLeft >= 300){
+					clearInterval(timmer)
+				};
+				oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px';
+			}, 30);
+		};
+
+		window.onload = function () {
+			var oDiv = document.getElementById('demo');
+			var oBtn = document.getElementsByTagName('input')[0];
+
+			oBtn.onclick = function () {
+				startMove ();
+			};
+		};
+	</script>
+</head>
+<body>
+	<input type="button" value="运动">
+	<div class="box" id="demo"></div>
+</body>
+</html>

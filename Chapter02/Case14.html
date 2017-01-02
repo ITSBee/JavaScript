@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>14 创建DOM元素</title>
+	<script>
+		window.onload = function () {
+			var oUl = document.getElementById('demo');
+			var oBtn = document.getElementById('btn');
+
+			oBtn.onclick = function () {
+				var oLi = document.createElement('li');
+				oUl.appendChild(oLi);
+			}
+		}
+	</script>
+
+</head>
+<body>
+	<input id="btn" type="button" value="创建li">
+	<ul id="demo">
+		<li>12312</li>
+	</ul>
+</body>
+</html>

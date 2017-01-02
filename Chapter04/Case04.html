@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>04 cookie记录用户名</title>
+	<script>
+		//  设置 cookie 的方法
+		function setCookie(name, value, iDay) {
+			var oDate = new Date();
+			oDate.setDate(oDate.getDate() + iDay);
+			document.cookie = name + '=' + value + '; expires =' + oDate;
+		};
+
+		//  读取 cookie 的方法
+		function getCookie(name) {
+			var aCookie = document.cookie.split('; ');
+			for (var i = 0; i < aCookie.length; i++) {
+				var aItem = aCookie[i].split('=');
+				if (name == aItem[0]) {
+					return aItem[1]
+				};
+			};
+			return '';
+		};
+
+		//  删除 cookie 的方法
+		function removeCookie(name) {
+			setCookie(name, '', -1);
+		}
+
+		window.onload = function () {
+			var oForm = document.getElementById('form01');
+			var oUser = document.getElementsByTagName('user')[0];
+			var oBtn = document.getElementById('btn');
+
+			oForm.onsubmit = function () {
+				setCookie('user', oUser.value, 5)
+			};
+
+			oUser.value = getCookie('user');
+		};	
+	</script>
+</head>
+<body>
+	<form id="form01" action="index.php">
+		用户名：<input type="text" name="user">
+		密码：<input type="password" name="pw">
+		<input type="submit" value="登录">
+		<a id="btn" href="javascript:;">清除密码</a>
+	</form>
+</body>
+</html>

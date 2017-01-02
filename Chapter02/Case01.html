@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>01 DOM</title>
+	<script>
+		window.onload = function () {
+			var oUl = document.getElementsByTagName('ul')[0];
+
+			alert(oUl.childNodes[0].style.background = 'red')
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		<li><span>111</span></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

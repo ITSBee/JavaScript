@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>12-04 鼠标拖拽04</title>
+	<style>
+		.box {
+			position: absolute;
+			width: 200px;
+			height: 150px;
+			background-color: #f00;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oDiv = document.getElementById('demo');
+			var disX = 0;
+			var disY = 0;
+
+			oDiv.onmousedown = function (ev) {
+				var oEvent = ev || event;
+				disX = oEvent.clientX - oDiv.offsetLeft;
+				disY = oEvent.clientY - oDiv.offsetTop;
+
+				document.onmousemove = function (ev) {
+					var oEvent = ev || event;
+					var lDis = oEvent.clientX - disX;
+					var tDis = oEvent.clientY - disY;
+
+					if (lDis < 0) {
+						lDis = 0;
+					}else if (lDis > document.documentElement.clientWidth - oDiv.offsetWidth) {
+						lDis = document.documentElement.clientWidth - oDiv.offsetWidth;
+					}
+
+					if (tDis < 0) {
+						tDis = 0;
+					}else if (tDis > document.documentElement.clientHeight - oDiv.offsetHeight) {
+						tDis = document.documentElement.clientHeight - oDiv.offsetHeight;
+					}
+
+					oDiv.style.left = lDis + 'px';
+					oDiv.style.top = tDis + 'px';
+				}
+
+				document.onmouseup = function () {
+					document.onmousemove = null;
+				}
+			}
+
+		}	
+	</script>
+</head>
+<body>
+	<div class="box" id="demo"></div>
+</body>
+</html>

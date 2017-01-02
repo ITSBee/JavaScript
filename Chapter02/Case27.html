@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>27 侧边栏</title>
+	<style>
+		body { height: 2000px; }
+		.demo {
+			position:absolute;
+			right: 0;
+			width: 100px;
+			height: 100px;
+			margin-top: -50px;
+			background-color: red;
+		}
+	</style>
+	<script>
+		window.onscroll = window.onload = function () {
+			var oDiv = document.getElementById('demo');
+			var oScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			var oHeight = (document.documentElement.clientHeight - oDiv.offsetHeight)/2;
+
+			oDiv.style.top = oScrollTop + oHeight + 'px';
+
+		}
+	</script>
+</head>
+<body>
+	<div class="demo" id="demo"></div>
+</body>
+</html>

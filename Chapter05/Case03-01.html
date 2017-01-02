@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03 运动03-匀速运动停止的条件</title>
+	<style>
+		.box{
+			position: absolute;
+			top: 50px;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+	</style>
+	<script>
+		var timmer = null;
+		function startMove (iTarget) {
+			var oDiv = document.getElementById('demo');
+			clearInterval(timmer)
+			timmer = setInterval(function () {
+				var iSpeed = 0;
+
+				if (oDiv.offsetLeft < iTarget) {
+					iSpeed = 7;
+				} else {
+					iSpeed = -7;
+				}
+
+				if(Math.abs(oDiv.offsetLeft - iTarget) < iSpeed){
+					clearInterval(timmer);
+					oDiv.style.left = iTarget + 'px';
+				} else {
+					oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px';
+				};
+				
+			}, 30);
+		};
+
+		window.onload = function () {
+			var oDiv = document.getElementById('demo');
+			var oBtn = document.getElementsByTagName('input')[0];
+
+			oBtn.onclick = function () {
+				startMove (300);
+			};
+		};
+	</script>
+</head>
+<body>
+	<input type="button" value="运动">
+	<div class="box" id="demo"></div>
+	<span style="position: absolute; left: 300px; height: 300px; width: 1px; background: #000;"></span>
+</body>
+</html>

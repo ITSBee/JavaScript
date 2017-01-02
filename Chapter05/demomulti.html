@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>document</title>
+	<style>
+		div {
+			width: 100px;
+			height: 50px;
+			margin-bottom: 20px;
+			background-color: #f00;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var aDiv = document.getElementsByTagName('div');
+						
+			for (var i = 0; i < aDiv.length; i++) {		
+				aDiv[i].timmer = null;
+				
+				aDiv[i].onmouseover = function () {
+					startMove(this, 300)
+				}
+
+				aDiv[i].onmouseout = function () {
+					startMove(this, 100)
+				}
+			}
+
+		};
+
+
+		function startMove(obj, iTarget) {
+			
+			clearInterval(obj.timmer);
+
+			obj.timmer = setInterval(function () {
+				var iSpeed = (iTarget - obj.offsetWidth)/8;
+
+				iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+				
+				// if (iSpeed>0) {
+				// 	Math.ceil(iSpeed)
+				// } else {
+				// 	Math.floor(iSpeed)
+				// }
+
+				if (obj.offsetWidth == iTarget) {
+					clearInterval(obj.timmer);
+				} else {
+					obj.style.width = obj.offsetWidth + iSpeed + 'px';
+				};
+			}, 30)
+		}
+		
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

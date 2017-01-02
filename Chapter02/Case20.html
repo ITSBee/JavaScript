@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>20 文档碎片2</title>
+	<script>
+		window.onload = function () {
+			var oBtn = document.getElementById('btn');
+			var oUl = document.getElementById('demo');
+			var oTemp = document.createDocumentFragment();
+
+
+			oBtn.onclick = function () {
+				var iTime = new Date().getTime();
+
+				for (var i = 0; i < 100000; i++) {
+					var oLi = document.createElement('li');
+					oTemp.appendChild(oLi);
+				}
+
+				oUl.appendChild(oTemp);
+
+				alert(new Date().getTime() - iTime);
+			}
+
+
+		}
+	</script>
+
+</head>
+<body>
+	<input id="btn" type="button" value="文档碎片">
+	<ul id="demo">
+		
+	</ul>
+</body>
+</html>

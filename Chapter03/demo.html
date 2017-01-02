@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<style>
+		.demo {
+			position: absolute;
+			width: 100px;
+			height: 60px;
+			background-color: red;
+		}
+	</style>
+	<script>	
+		window.onload = function () {
+			var oDiv = document.getElementById('demo');
+			var disX = 0;
+			var disY = 0;
+
+			// oDiv.onmousedown = function (ev) {
+			// 	oEvent = ev || event;
+			// 	disX = oEvent.clientX - oDiv.offsetLeft;
+			// 	disY = oEvent.clientY - oDiv.offsetTop;
+
+			// 	document.onmousemove = function (ev) {
+			// 		oEvent = ev || event;
+			// 		oDiv.style.left = oEvent.clientX - disX + 'px';
+			// 		oDiv.style.top = oEvent.clientY - disY + 'px';
+			// 	}
+
+			// 	document.onmouseup = function () {
+			// 		document.onmousemove = null;
+			// 		document.onmouseup = null;
+			// 	}
+			// };
+
+			oDiv.onmousedown = function (ev) {
+				oEvent = ev || event;
+				disX = oEvent.clientX - oDiv.offsetLeft;
+				disY = oEvent.clientY - oDiv.offsetTop;
+
+				document.onmousemove = function (ev) {
+					oEvent = ev || event;
+					var lDis = oEvent.clientX - disX;
+					var tDis = oEvent.clientY - disY;
+					
+
+					if (lDis < 0) {
+						lDis = 0;
+					} else if (lDis > document.documentElement.clientWidth - oDiv.offsetWidth) {
+						lDis = document.documentElement.clientWidth - oDiv.offsetWidth
+					}
+
+					if (tDis < 0) {
+						tDis = 0;
+					} else if (tDis > document.documentElement.clientHeight - oDiv.offsetHeight) {
+						tDis = document.documentElement.clientHeight - oDiv.offsetHeight
+					}
+
+					oDiv.style.left = lDis + 'px';
+					oDiv.style.top = tDis + 'px';
+				};
+
+				document.onmouseup = function () {
+					document.onmousemove = null;
+					document.onmouseup = null;
+				};
+			};
+		}
+	</script>
+</head>
+<body>
+	<div class="demo" id="demo"></div>
+</body>
+</html>

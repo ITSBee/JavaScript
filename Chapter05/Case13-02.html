@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>13-02 offsetWidth的bug解决方法一</title>
+	<style>
+		.demo{
+			height: 50px;
+			margin-bottom: 10px;
+			border: 2px solid #000;
+			background-color: #f00;
+		}
+	</style>
+	<script>
+
+		window.onload = function () {
+			var oDiv = document.getElementById('demo');
+			 setInterval(function () {
+			 	oDiv.style.width = parseInt(oDiv.style.width) - 1 + 'px';
+			 } , 30)
+		}
+	</script>
+</head>
+<body>
+	<div class="demo" id="demo" style="width: 200px;"></div>
+</body>
+</html>

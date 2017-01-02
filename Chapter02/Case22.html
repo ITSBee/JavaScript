@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>22 BOM-open()配合document.write()</title>
+	<script>
+		window.onload = function () {
+			var oBtn = document.getElementById('btn');
+			var oTxt = document.getElementById('text');
+
+			oBtn.onclick = function () {
+				var oNewWin = window.open();
+				oNewWin.document.write(oTxt.value)
+			}
+		}
+	</script>
+</head>
+<body>
+	<textarea id="text" cols="30" rows="10"></textarea>
+	<input id="btn" type="button" value="运行代码">
+	
+</body>
+</html>

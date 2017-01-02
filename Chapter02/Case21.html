@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>21 BOM-open()</title>
+	<script>
+		window.onload = function () {
+			var oBtn = document.getElementById('btn');
+
+			oBtn.onclick = function () {
+				window.open('http://baidu.com', '_self')
+				// alert('a')
+			}
+		}
+	</script>
+</head>
+<body>
+	<input id="btn" type="button" value="打开窗口">
+	<a href="http://www.baidu.com" target="_self">aaa</a>
+</body>
+</html>

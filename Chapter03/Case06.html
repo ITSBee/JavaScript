@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>06 事件冒泡的解决</title>
+	<style>
+		.demo {
+			display: none;
+			width: 150px;
+			height: 200px;
+			background: #ccc;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oBtn = document.getElementById('btn');
+			var oDiv = document.getElementById('demo');
+
+
+			oBtn.onclick = function (ev) {
+				var oEvent = ev || event;
+				oDiv.style.display = 'block';
+
+				oEvent.cancelBubble = true;
+				// alert('按钮被点了')
+			}
+
+			document.onclick = function () {
+				oDiv.style.display = 'none';
+				// alert('页面被点了')
+			}
+		}
+	</script>
+</head>
+<body>
+	<input id="btn" type="button" value="显示">
+	<div class="demo" id="demo"></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>19 文档碎片</title>
+	<script>
+		window.onload = function () {
+			var oBtn = document.getElementById('btn');
+			var oUl = document.getElementById('demo');
+			
+
+
+			oBtn.onclick = function () {
+				var iTime = new Date().getTime();
+
+				for (var i = 0; i < 500000; i++) {
+					var oLi = document.createElement('li');
+					oUl.appendChild(oLi);
+				}
+
+				alert(new Date().getTime() - iTime);
+			}
+
+
+		}
+	</script>
+
+</head>
+<body>
+	<input id="btn" type="button" value="普通">
+	<ul id="demo">
+		
+	</ul>
+</body>
+</html>

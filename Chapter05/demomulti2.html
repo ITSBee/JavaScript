@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>document</title>
+	<style>
+		div {
+			width: 100px;
+			height: 50px;
+			margin-bottom: 20px;
+			background-color: #f00;
+			border: 1px solid #000;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var aDiv = document.getElementsByTagName('div');
+				aDiv[0].onmouseover = function () {
+					alert('a')
+					startMove(this, 'width', 300)
+				}
+
+				aDiv[1].onmouseover = function () {
+					alert('b')
+					startMove(this, 'height', 100)
+				}
+
+				aDiv[2].onmouseover = function () {
+					alert('c')
+					startMove(this, 'borderWidth', 20)
+				}
+		};
+
+
+		function getStyle(obj, attr) {
+				
+			if (obj.currentStyle) {
+				return obj.currentStyle[attr];
+			} else {
+				return getComputedStyle(obj)[attr];
+			}
+
+		}
+
+		function startMove(obj, attr, iTarget) {
+			
+			clearInterval(obj.timmer);
+
+			obj.timmer = setInterval(function () {
+				var iCur = parseInt(getStyle(obj, attr))
+
+				var iSpeed = (iTarget - iCur)/8;
+
+				iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+
+				if (iCur == iTarget) {
+					clearInterval(obj.timmer);
+				} else {
+					obj.style[attr] = iCur + iSpeed + 'px';
+				};
+			}, 30)
+		}
+		
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>11 通过className获取元素</title>
+	<script>
+		window.onload = function () {
+			var oUl = document.getElementById('demo');
+			var aLi = oUl.getElementsByTagName('li');
+
+			for (var i = 0; i < aLi.length; i++) {
+				if (aLi[i].className == 'active') {
+					aLi[i].style.background = 'red'
+				}
+			}
+		}
+	</script>
+
+</head>
+<body>
+	<ul id="demo">
+		<li></li>
+		<li class="active"></li>
+		<li></li>
+		<li class="active"></li>
+		<li></li>
+		<li class="active"></li>
+		<li></li>
+	</ul>
+</body>
+</html>

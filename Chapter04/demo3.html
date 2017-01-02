@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>cookie</title>
+	<script>
+		// 设置cookie
+		function setCookie(name, value, iDay ) {
+			var oDate = new Date();
+			oDate.setDate(oDate.getDate() + iDay);
+			document.cookie = name + '=' + value + ';expires=' + oDate;
+		}
+
+		//获取cookie
+		function getCookie(name) {
+			var aCookie = document.cookie.split('; ');
+			for (var i = 0; i < aCookie.length; i++) {
+				var aItem = aCookie[i].split('=');
+
+				if (aItem[0] == name) {
+					return aItem[1];
+				}
+			}
+			return '';
+		}
+
+		// 删除cookie
+		function removeCookie(name) {
+			setCookie('user', '1', -1)
+		}
+
+
+	window.onload=function () {
+		var oForm = document.getElementById('form1');
+		var oUser = document.getElementsByName('user')[0];
+		var oBtnClear = document.getElementsByTagName('a')[0];
+		
+		oForm.onsubmit=function (){
+			setCookie('user', oUser.value, 30);
+		};
+		
+		oUser.value=getCookie('user');
+		
+		oBtnClear.onclick=function (){
+			removeCookie('user');
+			oUser.value='';
+		};
+	};
+	</script>
+</head>
+<body>
+	<form id="form1" action="http://www.yinheedu.com/">
+		用户名：<input type="text" name="user" />
+	  密码：<input type="password" name="pass" />
+	  <input type="submit" value="登录" />
+	  <a href="javascript:;">清除记录</a>
+	</form>
+</body>
+</html>

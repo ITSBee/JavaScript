@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>12 多物体使用运动框架02</title>
+	<style>
+		.demo{
+			width: 100px;
+			height: 50px;
+			margin-bottom: 10px;
+			background-color: #f00;
+		}
+	</style>
+	<script>
+		var timmer = null;
+		function startMove(obj, iTarget) {
+
+			clearInterval(timmer);
+
+			timmer = setInterval(function () {
+				var iSpeed = (iTarget - obj.offsetWidth)/8;
+
+				iSpeed > 0 ? iSpeed = Math.ceil(iSpeed) : iSpeed = Math.floor(iSpeed);
+
+				// if (iSpeed > 0) {
+				// 	iSpeed = Math.ceil(iSpeed);
+				// } else {
+				// 	iSpeed = Math.floor(iSpeed);
+				// }
+
+				if (obj.offsetWidth == iTarget) {
+					clearInterval(obj.timmer);
+				} else {
+					obj.style.width = obj.offsetWidth + iSpeed + 'px';
+				}
+
+			}, 30)
+		}
+
+		window.onload = function () {
+			var aDiv = document.getElementsByTagName('div');
+			for (var i = 0; i < aDiv.length; i++) {
+
+				aDiv[i].onmouseover = function () {
+					startMove(this, 300)
+				}
+
+				aDiv[i].onmouseout = function () {
+					startMove(this, 100)
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="demo"></div>
+	<div class="demo"></div>
+	<div class="demo"></div>
+</body>
+</html>

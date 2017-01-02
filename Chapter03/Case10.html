@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>10 点击按钮提交留言+按 Ctrl + Enter提交</title>
+	<script>
+		window.onload = function () {
+			var oContent = document.getElementById('content');
+			var oFill = document.getElementById('fill');
+			var oBtn = document.getElementById('btn');
+
+			oBtn.onclick = function () {
+				oContent.value += oFill.value + '\n';
+				oFill.value = '';
+			}
+
+
+			// 按 Enter 提交
+
+			// oFill.onkeydown = function (ev) {
+			// 	var oEvent = ev || event;
+
+			// 	if (oEvent.keyCode == 13) {
+			// 		oContent.value += oFill.value + '\n';
+			// 		oFill.value = '';
+			// 	}
+				
+			// }
+
+
+			// 按 Enter + Ctrl 提交
+			oFill.onkeydown = function (ev) {
+				var oEvent = ev || event;
+
+				if (oEvent.keyCode == 13 && oEvent.ctrlKey == true) {
+					oContent.value += oFill.value + '\n';
+					oFill.value = '';
+				}
+				
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<textarea name="" id="content" cols="50" rows="10"></textarea><br>
+	<input id="fill" type="text"><input id="btn" type="button" value="提交">
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>05 一组元素跟随鼠标移动</title>
+	<style>
+		div {
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			background-color: red;
+		}
+	</style>
+	<script>
+		document.onmousemove = function (ev) {
+			var oEvent = ev || event;
+			var aDiv = document.getElementsByTagName('div');
+
+
+			for (var i = aDiv.length - 1; i > 0; i--) {
+				aDiv[i].style.top = aDiv[i-1].style.top;
+				aDiv[i].style.left = aDiv[i-1].style.left;
+			}
+
+
+			aDiv[0].style.top = oEvent.clientY + 'px';
+			aDiv[0].style.left = oEvent.clientX + 'px';
+
+		}
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

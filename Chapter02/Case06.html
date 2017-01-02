@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>06 offsetParent</title>
+	<style>
+		.demo {
+			/*position: absolute;*/
+			width: 100px;
+			height: 100px;
+			background-color: red
+		}
+
+		.demo div {
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			width: 100px;
+			height: 100px;
+			background-color: green
+		}
+	</style>
+
+</head>
+<body>
+	<div>
+		<div id="box" class="demo">
+			<div onclick="alert(this.offsetParent.id)"></div>
+		</div>
+	</div>
+</body>
+</html>

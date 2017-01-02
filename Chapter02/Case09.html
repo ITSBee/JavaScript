@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>09 操纵元素属性</title>
+	<script>
+		window.onload = function () {
+
+			var oTxt = document.getElementById('text');
+			// 1
+			oTxt.value = '123';
+
+			// 2
+			oTxt['title'] = '邮箱';
+
+			// 3
+			oTxt.setAttribute('class', 'demo');
+
+
+		}
+	</script>
+
+</head>
+<body>
+	<input id="text" type="text">
+</body>
+</html>

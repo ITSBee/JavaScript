@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>运动</title>
+	<style>
+		.box {
+			position: absolute;
+			top: 50%;
+			left: -100px;
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+		.box span {
+			position: absolute;
+			top: 0;
+			right: -20px;
+			width: 20px;
+			height: 80px;
+			background-color: #0f0;
+		}
+	</style>
+	<script>	
+		// function startMove() {
+		// 	var timmer = null;
+		// 	var oDiv = document.getElementById('box');
+
+		// 	clearInterval(timmer);
+
+		// 	timmer = setInterval(function () {
+		// 		var iSpeed = 10;
+		// 		if (oDiv.offsetLeft >= 300) {
+		// 			clearInterval(timmer)	
+		// 		}else {
+		// 			oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px';
+		// 		}
+		// 	}, 30);
+		// }
+		var timmer = null;
+		function startMove(iTarget) {
+			
+			var oDiv = document.getElementById('box');
+
+			clearInterval(timmer);
+
+			timmer = setInterval(function () {
+				var iSpeed = 0;
+				if (oDiv.offsetLeft < iTarget) {
+					iSpeed = 10;
+				}else {
+					iSpeed = -10;
+				}
+				if (oDiv.offsetLeft == iTarget) {
+					clearInterval(timmer);
+				}else {
+					oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px';
+				}
+			}, 30)
+		}
+		window.onload =function () {
+			var oDiv = document.getElementById('box');
+			oDiv.onmouseover = function () {
+				startMove(0)
+			};
+			oDiv.onmouseout = function () {
+				startMove(-100)
+			};
+		}
+	</script>
+</head>
+<body>
+	
+	<div class="box" id="box">
+		<span>分享到</span>
+	</div>
+</body>
+</html>

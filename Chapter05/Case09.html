@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>09 缓冲运动（减速运动）</title>
+	<style>
+		.box {
+			position: absolute;
+			top: 50px;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+	</style>
+
+	<script>
+		var timmer = null;
+		
+		function startMove(iTarget) {
+			var oDiv = document.getElementById('demo');
+
+			clearInterval(timmer);
+
+			timmer = setInterval(function () {
+				var iSpeed = (iTarget - oDiv.offsetLeft)/15;
+
+				if (oDiv.offsetLeft == iTarget) {
+					clearInterval(timmer);
+				} else {
+					oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px';
+				}
+			}, 30)
+
+		}
+
+		window.onload = function () {
+			var oDiv = document.getElementById('demo');
+			var oBtn = document.getElementsByTagName('input')[0];
+
+			oBtn.onclick = function () {
+				startMove(300)
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="运动">
+	<div class="box" id="demo"></div>
+</body>
+</html>

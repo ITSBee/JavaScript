@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>02 封装设置、读取、删除cookie的方法</title>
+	<script>
+
+		//  设置 cookie 的方法
+		function setCookie(name, value, iDay) {
+			var oDate = new Date();
+			oDate.setDate(oDate.getDate() + iDay)
+			document.cookie = name + '=' + value + '; expires =' + oDate;
+		}
+
+		//  读取 cookie 的方法
+		function getCookie(name) {
+
+			var aCookie = document.cookie.split('; ');
+			
+			for (var i = 0; i < aCookie.length; i++) {
+				var aItem = aCookie[i].split('=')
+					if (name == aItem[0]) {
+						return aItem[1]
+					}
+			}
+
+			return ''
+		}
+
+		//  删除 cookie 的方法
+		function removeCookie(name) {
+			setCookie(name, '', -1)
+		}
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
